@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# Simple Expense Splitter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight, no-frills expense splitter web app (think **Splitwise-lite**) that helps users track shared expenses and see who owes whom.
 
-Currently, two official plugins are available:
+This project prioritizes **clarity, correctness, and simplicity** while leaving room to scale with more advanced features later.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The app allows users to:
+- Add expenses
+- Split expenses evenly between participants
+- See balances showing who owes and who is owed
+- View a simple summary of debts
 
-## Expanding the ESLint configuration
+For the initial version, all data is stored locally (no backend, no authentication).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Goals & Non-Goals
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Goals (MVP)
+- Add expenses with:
+  - Description
+  - Amount
+  - Payer
+  - Participants
+- Automatically split expenses evenly
+- Show balances per user (owed / owes)
+- Generate a simple “who owes who” summary
+- Persist data using **local storage**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Non-Goals (for now)
+- Group creation or management
+- User authentication
+- Real payments or settlements
+- Notifications
+- Mobile app
+- Complex split logic (percentages, shares, etc.)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## User Stories
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- As a user, I can create a new expense with:
+  - Amount
+  - People involved
+  - Details of who paid
+- As a user, I can see how much each person owes or is owed
+- As a user, I can view a simple summary of outstanding balances
+
+---
+
+## High-Level Architecture
+
+### Frontend
+- React
+- Local state management (`useState`)
+- Persistence via `localStorage`
+
+### Deployment
+- Frontend hosted on **Vercel** or **Netlify**
+
+_No backend in the MVP._
+
+---
