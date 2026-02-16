@@ -26,3 +26,7 @@ a {
     text-decoration: none;
     /*margin-left: 600px;*/
 }
+.active {
+    font-weight: bold;
+    color: #0e68ef;
+}

@@ -1,6 +1,6 @@
 import './index.css'
 import Divider from '@mui/material/Divider';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 const CustomHeader = () => {
@@ -12,13 +12,13 @@ const CustomHeader = () => {
                 </div>
                 <div className="navContainer">
                     <div>
-                        <Link to="/">Dashboard</Link>
+                        <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
                     </div>
                     <div>
-                        <Link to="/expenses">Expenses</Link>
+                        <NavLink to="/expenses" className={({ isActive }) => isActive ? 'active' : ''}>Expenses</NavLink>
                     </div>
                     <div>
-                        <a href="/">People</a>
+                        <NavLink to="/people" className={({ isActive }) => isActive ? 'active' : ''}>People</NavLink>
                     </div>
                 </div>
             </div>
