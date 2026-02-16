@@ -1,7 +1,8 @@
 .footerBottom {
     margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #333;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 2px solid #e9e9ec;
     text-align: center;
     font-size: 0.85rem;
     color: #aaa;
