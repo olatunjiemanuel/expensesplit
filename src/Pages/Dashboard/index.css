@@ -1,10 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.dashboardCntnr {
+    margin-right: var(--space-xxxl);
+    margin-left: var(--space-xxxl);
+    padding: var(--space-lg)
 }
 
-html, body, #root {
-    height: 100%;
-    width: 100%;
+.recentExpensesHeaderCntnr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mainHeaderTxt {
+    font-size: var(--font-size-xxlg);
+}
+
+.recentExpensesContainer {
+    margin-top: var(--space-xl);
 }

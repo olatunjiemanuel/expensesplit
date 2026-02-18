@@ -12,13 +12,13 @@ const CustomHeader = () => {
                 </div>
                 <div className="navContainer">
                     <div>
-                        <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
+                        <NavLink to="/" className={({isActive}) => isActive ? 'active' : ''}>Dashboard</NavLink>
                     </div>
                     <div>
-                        <NavLink to="/expenses" className={({ isActive }) => isActive ? 'active' : ''}>Expenses</NavLink>
+                        <NavLink to="/expenses" className={({isActive}) => isActive ? 'active' : ''}>Expenses</NavLink>
                     </div>
                     <div>
-                        <NavLink to="/people" className={({ isActive }) => isActive ? 'active' : ''}>People</NavLink>
+                        <NavLink to="/people" className={({isActive}) => isActive ? 'active' : ''}>People</NavLink>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,19 @@
+:root {
+    /* Colors */
+    --color-primary: #0e68ef;
+    --color-hover: #d3d6da;
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-xxxl: 200px;
+
+    /* Typography */
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xxlg: 2rem;
+}

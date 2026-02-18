@@ -28,5 +28,5 @@ a {
 }
 .active {
     font-weight: bold;
-    color: #0e68ef;
+    color: var(--color-primary);
 }
