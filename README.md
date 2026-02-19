@@ -41,17 +41,6 @@ For the initial version, all data is stored locally (no backend, no authenticati
 
 ---
 
-## User Stories
-
-- As a user, I can create a new expense with:
-  - Amount
-  - People involved
-  - Details of who paid
-- As a user, I can see how much each person owes or is owed
-- As a user, I can view a simple summary of outstanding balances
-
----
-
 ## High-Level Architecture
 
 ### Frontend
