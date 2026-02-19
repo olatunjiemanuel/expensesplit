@@ -57,26 +57,6 @@ Initial Deployment
 
 ⸻
 
-Data Model (Initial)
-
-User (no auth yet)
-
-User
-- id (uuid)
-- name (string)
-
-Expense
-
-Expense
-- id (uuid)
-- group_id
-- description
-- amount (decimal)
-- paid_by (user_id)
-- created_at
-
-⸻
-
 Expense Splitting Logic
 
 Assumptions (MVP)
@@ -128,11 +108,10 @@ Designed to support:
 
 ⸻
 
-Tech Stack Suggestion (Optional)
+Tech Stack (Optional backend for mvp)
     •	Frontend: React + TypeScript
-    •	Backend: Node.js (Express / Fastify)
+    •	Backend: c# ASP.Net
     •	Database: PostgreSQL
-    •	ORM: Prisma / TypeORM
 
 ⸻
 
