@@ -1,0 +1,23 @@
+.expenseCardCtnr {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-md);
+    border-radius: var(--space-sm);
+}
+
+.expenseCardCtnr:hover {
+    background-color: var(--color-hover);
+}
+
+.subHeadText {
+    margin-top: var(--space-sm);
+    color: var(--color-primary);
+    margin-left: var(--space-xs);
+}
+
+.amountCtnr {
+    display: flex;
+    align-self: flex-end;
+}
+
+
