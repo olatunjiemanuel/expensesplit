@@ -3,8 +3,12 @@ import Button from '@mui/material/Button';
 
 //component import
 import ExpenseCard from "../../Components/ExpenseCard";
+import EmptyState from "../../Components/EmptyState";
 
 const Dashboard = () => {
+    // const expenses = [{ amount: "85.00", paidBy: "Mark", name: "Weekly Shop" }];
+    const expenses: any[] = [];
+
     return (
         <div className="dashboardCntnr">
             <div className="recentExpensesHeaderCntnr">
@@ -14,14 +18,24 @@ const Dashboard = () => {
                 <div>
                     <Button variant="contained">Add New Expense</Button>
                 </div>
-
             </div>
             <div className="recentExpensesContainer">
-                <ExpenseCard expenseAmount="85.00" expensePaidBy="Mark" expenseName="Weekly Shop"/>
+                {expenses.length === 0 ? (
+                    <EmptyState />
+                ) : (
+                    expenses.map((expense, index) => (
+                        <ExpenseCard
+                            key={index}
+                            expenseAmount={expense.amount}
+                            expensePaidBy={expense.paidBy}
+                            expenseName={expense.name}
+                        />
+                    ))
+                )}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Dashboard
+export default Dashboard;
 
