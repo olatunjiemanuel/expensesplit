@@ -1,7 +1,9 @@
+import * as React from "react";
+import Typography from "@mui/material/Typography";
 
-function People() {
+const People: React.FC = () => {
     return (
-        <div>People</div>
+        <div><Typography>People</Typography></div>
     )
 }
 

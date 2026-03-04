@@ -1,19 +1,21 @@
-import "./index.css";
 import Button from '@mui/material/Button';
+import "./index.css";
 
 //component import
 import ExpenseCard from "../../Components/ExpenseCard";
 import EmptyState from "../../Components/EmptyState";
+import * as React from "react";
+import Typography from "@mui/material/Typography";
 
-const Dashboard = () => {
-    // const expenses = [{ amount: "85.00", paidBy: "Mark", name: "Weekly Shop" }];
+const Dashboard: React.FC = () => {
+    // const expenses = [{amount: "85.00", paidBy: "Mark", name: "Weekly Shop"}];
     const expenses: any[] = [];
 
     return (
         <div className="dashboardCntnr">
             <div className="recentExpensesHeaderCntnr">
                 <div>
-                    <h1 className="mainHeaderTxt">Recent Expenses</h1>
+                    <Typography variant="h5" className="mainHeaderTxt">Recent Expenses</Typography>
                 </div>
                 <div>
                     <Button variant="contained">Add New Expense</Button>
@@ -21,7 +23,7 @@ const Dashboard = () => {
             </div>
             <div className="recentExpensesContainer">
                 {expenses.length === 0 ? (
-                    <EmptyState />
+                    <EmptyState/>
                 ) : (
                     expenses.map((expense, index) => (
                         <ExpenseCard
@@ -38,4 +40,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

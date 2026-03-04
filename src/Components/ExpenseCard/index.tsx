@@ -1,3 +1,5 @@
+import * as React from "react";
+import Typography from "@mui/material/Typography";
 import './index.css'
 
 interface ExpenseCardProps {
@@ -7,19 +9,18 @@ interface ExpenseCardProps {
 
 }
 
-const ExpenseCard = ({expenseName, expensePaidBy, expenseAmount}: ExpenseCardProps) => {
+const ExpenseCard: React.FC<ExpenseCardProps> = ({expenseName, expensePaidBy, expenseAmount}: ExpenseCardProps) => {
     return (
         <div className="expenseCardCtnr">
             <div>
-                <h3>{expenseName}</h3>
-                <p className="subHeadText">Paid by {expensePaidBy}</p>
+                <Typography variant="h6">{expenseName}</Typography>
+                <Typography variant="subtitle1" className="subHeadText">Paid by {expensePaidBy}</Typography>
             </div>
             <div className="amountCtnr">
-                <p>£{expenseAmount}</p>
+                <Typography variant="subtitle1">£{expenseAmount}</Typography>
             </div>
         </div>
     )
 }
 
 export default ExpenseCard
-

@@ -1,11 +1,13 @@
 import "./index.css"
+import * as React from "react";
+import Typography from "@mui/material/Typography";
 
-
-const CustomFooter = () =>  {
+const CustomFooter: React.FC = () => {
     return (
         <footer className="footerBottom">
             <div>
-                <p>© {new Date().getFullYear()} ExpenseSplit. All rights reserved.</p>
+                <Typography variant="subtitle2">© {new Date().getFullYear()} ExpenseSplit. All rights
+                    reserved.</Typography>
             </div>
         </footer>
     )

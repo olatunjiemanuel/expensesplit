@@ -2,8 +2,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import './index.css';
+import * as React from "react";
 
-const EmptyState = () => {
+const EmptyState:React.FC = () => {
     return (
         <Box className="emptyStateContainer">
             <ReceiptLongIcon className="emptyStateIcon" />
