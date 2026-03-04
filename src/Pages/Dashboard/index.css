@@ -1,0 +1,19 @@
+.dashboardCntnr {
+    margin-right: var(--space-xxxl);
+    margin-left: var(--space-xxxl);
+    padding: var(--space-lg)
+}
+
+.recentExpensesHeaderCntnr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mainHeaderTxt {
+    font-size: var(--font-size-xxlg);
+}
+
+.recentExpensesContainer {
+    margin-top: var(--space-xl);
+}
