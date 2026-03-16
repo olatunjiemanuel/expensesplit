@@ -15,7 +15,75 @@
     margin-left: var(--space-xs);
 }
 
+.card {
+    padding: var(--space-md);
+    border-radius: var(--space-sm);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: var(--space-sm);
+}
+
 .amountCtnr {
     display: flex;
     align-self: flex-end;
+}
+
+.cardLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    padding: var(--space-lg);
+    border-radius: var(--space-md);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader {
+    border-bottom: 1px solid #ececec;
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.cardRow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.icon {
+    font-size: 1.2rem;
+}
+
+.detail {
+    color: var(--color-seconday);
+    font-size: 1rem;
 }

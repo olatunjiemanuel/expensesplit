@@ -1,40 +1,52 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./index.module.css";
 import Typography from "@mui/material/Typography";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-
-import mockExpenses from "../../utilities/mockExpenses";
+import ExpenseCard from "../../Components/ExpenseCard";
 
 const Expenses: React.FC = () => {
-    const [expenses, setExpenses] = useState(mockExpenses);
+    const [expenses, setExpenses] = useState(() => {
+        const savedExpenses = localStorage.getItem("expenses");
+        return savedExpenses ? JSON.parse(savedExpenses) : [];
+    });
     const [newExpense, setNewExpense] = useState({name: "", amount: "", date: "", paidBy: ""});
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem("expenses", JSON.stringify(expenses));
+    }, [expenses]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
         setNewExpense({...newExpense, [name]: value});
     };
 
-    const handleAddExpense = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleAddExpense = (event: React.SubmitEvent<HTMLFormElement>) => {
         event.preventDefault();
-        if (newExpense.name && newExpense.amount && newExpense.date && newExpense.paidBy) {
-            const newId = expenses.length + 1;
-            const expenseToAdd = {id: newId, ...newExpense, amount: parseFloat(newExpense.amount)};
-            setExpenses([...expenses, expenseToAdd]);
-            setNewExpense({name: "", amount: "", date: "", paidBy: ""});
-            setIsModalOpen(false);
+
+        // Ensure all fields are filled before proceeding
+        if (!newExpense.name || !newExpense.amount || !newExpense.date || !newExpense.paidBy) {
+            alert("Please fill in all fields.");
+            return;
         }
+
+        // Parse amount and generate a unique ID for the expense
+        const expenseToAdd = {
+            id: Date.now(),
+            name: newExpense.name,
+            amount: parseFloat(newExpense.amount),
+            date: newExpense.date,
+            paidBy: newExpense.paidBy,
+        };
+
+        // Update state and reset form
+        setExpenses((prevExpenses) => [...prevExpenses, expenseToAdd]);
+        setNewExpense({name: "", amount: "", date: "", paidBy: ""});
+        setIsModalOpen(false);
     };
 
     const handleModalOpen = () => setIsModalOpen(true);
@@ -59,11 +71,12 @@ const Expenses: React.FC = () => {
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
                                 <TextField
-                                    label="Name"
+                                    label="Expense Name"
                                     name="name"
                                     value={newExpense.name}
                                     onChange={handleInputChange}
                                     fullWidth
+                                    placeholder="Enter expense name"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -105,31 +118,20 @@ const Expenses: React.FC = () => {
                     </form>
                 </Box>
             </Modal>
-            <TableContainer component={Paper} className={styles.table}>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Amount</TableCell>
-                            <TableCell>Date</TableCell>
-                            <TableCell>Paid By</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {expenses.map((expense) => (
-                            <TableRow key={expense.id}><TableCell>{expense.name}</TableCell>
-                                <TableCell>${expense.amount}</TableCell>
-                                <TableCell>{expense.date}</TableCell>
-                                <TableCell>{expense.paidBy}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            <div className={styles.expenseCardContainer}>
+                {expenses.map((expense) => (
+                    <ExpenseCard
+                        key={expense.id}
+                        id={expense.id}
+                        name={expense.name}
+                        amount={expense.amount}
+                        date={expense.date}
+                        paidBy={expense.paidBy}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
 
 export default Expenses;
-
-
