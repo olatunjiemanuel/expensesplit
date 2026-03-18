@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {handleAddExpense} from "../../utilities/utilFunctions";
 import styles from "./index.module.css";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -25,32 +26,6 @@ const Expenses: React.FC = () => {
         setNewExpense({...newExpense, [name]: value});
     };
 
-    const handleAddExpense = (event: React.SubmitEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        // Ensure all fields are filled before proceeding
-        if (!newExpense.name || !newExpense.amount || !newExpense.date || !newExpense.paidBy) {
-            alert("Please fill in all fields.");
-            return;
-        }
-
-        // Parse amount and generate a unique ID for the expense
-        const expenseToAdd = {
-            id: Date.now(),
-            name: newExpense.name,
-            amount: parseFloat(newExpense.amount),
-            date: newExpense.date,
-            paidBy: newExpense.paidBy,
-        };
-
-        // Update state and reset form
-        setExpenses((prevExpenses) => [...prevExpenses, expenseToAdd]);
-        setNewExpense({name: "", amount: "", date: "", paidBy: ""});
-        setIsModalOpen(false);
-    };
-
-    const handleModalOpen = () => setIsModalOpen(true);
-    const handleModalClose = () => setIsModalOpen(false);
 
     return (
         <div className={styles.expensesCntnr}>
@@ -58,18 +33,22 @@ const Expenses: React.FC = () => {
                 <Typography variant="h4" gutterBottom>
                     Expenses
                 </Typography>
-                <Button variant="contained" color="primary" onClick={handleModalOpen}>
+                <Button variant="contained" color="primary" onClick={() => setIsModalOpen(true)}>
                     Add Expense
                 </Button>
             </div>
-            <Modal open={isModalOpen} onClose={handleModalClose}>
+            <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <Box className={styles.modal}>
                     <Typography variant="h6" gutterBottom>
                         Add New Expense
                     </Typography>
-                    <form onSubmit={handleAddExpense}>
+                    <form
+                        onSubmit={(event) =>
+                            handleAddExpense(event, newExpense, setExpenses, setNewExpense, setIsModalOpen)
+                        }
+                    >
                         <Grid container spacing={2}>
-                            <Grid item xs={12}>
+                            <div>
                                 <TextField
                                     label="Expense Name"
                                     name="name"
@@ -78,8 +57,8 @@ const Expenses: React.FC = () => {
                                     fullWidth
                                     placeholder="Enter expense name"
                                 />
-                            </Grid>
-                            <Grid item xs={12}>
+                            </div>
+                            <div>
                                 <TextField
                                     label="Amount"
                                     name="amount"
@@ -87,19 +66,17 @@ const Expenses: React.FC = () => {
                                     onChange={handleInputChange}
                                     fullWidth
                                 />
-                            </Grid>
-                            <Grid item xs={12}>
+                            </div>
+                            <div>
                                 <TextField
-                                    label="Date"
                                     name="date"
                                     type="date"
                                     value={newExpense.date}
                                     onChange={handleInputChange}
                                     fullWidth
-                                    InputLabelProps={{shrink: true}}
                                 />
-                            </Grid>
-                            <Grid item xs={12}>
+                            </div>
+                            <div>
                                 <TextField
                                     label="Paid By"
                                     name="paidBy"
@@ -108,18 +85,18 @@ const Expenses: React.FC = () => {
                                     fullWidth
                                     placeholder="Enter payer name"
                                 />
-                            </Grid>
-                            <Grid item xs={12}>
+                            </div>
+                            <div>
                                 <Button type="submit" variant="contained" color="primary">
                                     Submit Expense
                                 </Button>
-                            </Grid>
+                            </div>
                         </Grid>
                     </form>
                 </Box>
             </Modal>
             <div className={styles.expenseCardContainer}>
-                {expenses.map((expense) => (
+                {expenses.map((expense: { id: number; name: string; amount: number; date: string; paidBy: string }) => (
                     <ExpenseCard
                         key={expense.id}
                         id={expense.id}

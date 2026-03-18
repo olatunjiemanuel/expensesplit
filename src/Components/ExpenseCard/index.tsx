@@ -48,4 +48,3 @@ const ExpenseCard: React.FC<ExpenseCardProps> = ({id, name, amount, date, paidBy
 
 
 export default ExpenseCard;
-

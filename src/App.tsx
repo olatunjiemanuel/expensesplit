@@ -5,6 +5,7 @@ import CustomHeader from "./Components/CustomHeader";
 import CustomFooter from "./Components/CustomFooter";
 import Expenses from "./Pages/Expenses/index.tsx";
 import People from "./Pages/People";
+import ExpenseDetail from "./Pages/ExpenseDetail";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/" element={<Dashboard/>}/>
                     <Route path="/expenses" element={<Expenses/>}/>
                     <Route path="/people" element={<People/>}/>
+                    <Route path="/expenses/:id" element={<ExpenseDetail/>}/>
                 </Routes>
             </main>
             <div><CustomFooter/></div>
@@ -26,4 +28,3 @@ function App() {
 }
 
 export default App
-

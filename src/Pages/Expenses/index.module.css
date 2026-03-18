@@ -1,6 +1,5 @@
 .expensesCntnr {
     padding: var(--space-lg);
-    background-color: #f9f9f9;
     border-radius: var(--space-sm);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -31,38 +30,4 @@
     gap: var(--space-md);
     margin-top: var(--space-lg);
     padding-bottom: var(--space-lg);
-}
-
-.card {
-    padding: var(--space-md);
-    border-radius: var(--space-sm);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card .name {
-    font-weight: bold;
-    margin-bottom: var(--space-sm);
-    font-size: 1.2rem;
-    color: var(--primary-color);
-}
-
-.card .detail {
-    margin-bottom: var(--space-sm);
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.expenseCard {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    margin-top: 2rem;
 }
