@@ -1,4 +1,4 @@
-.expensesCntnr {
+.expensesContainer {
     padding: var(--space-lg);
     border-radius: var(--space-sm);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

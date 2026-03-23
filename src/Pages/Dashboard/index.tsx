@@ -19,8 +19,8 @@ const Dashboard: React.FC = () => {
     }, []);
 
     return (
-        <div className={styles.dashboardCntnr}>
-            <div className={styles.recentExpensesHeaderCntnr}>
+        <div className={styles.dashboardContainer}>
+            <div className={styles.recentExpensesHeaderContainer}>
                 <div>
                     <Typography variant="h6" className={styles.mainHeaderTxt}>Recent Expenses</Typography>
                 </div>

@@ -28,7 +28,7 @@ const Expenses: React.FC = () => {
 
 
     return (
-        <div className={styles.expensesCntnr}>
+        <div className={styles.expensesContainer}>
             <div className={styles.expenseHeaderCtnr}>
                 <Typography variant="h4" gutterBottom>
                     Expenses

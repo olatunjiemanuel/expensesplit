@@ -1,10 +1,10 @@
-.dashboardCntnr {
+.dashboardContainer {
     margin-right: var(--space-xxxl);
     margin-left: var(--space-xxxl);
     padding: var(--space-lg)
 }
 
-.recentExpensesHeaderCntnr {
+.recentExpensesHeaderContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
