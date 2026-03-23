@@ -1,15 +1,22 @@
 import Button from '@mui/material/Button';
 import styles from "./index.module.css";
+import React, {useState, useEffect} from "react";
 
 //component import
-import ExpenseCard from "../../Components/ExpenseCard";
+import ExpenseCard from "../../Components/ExpenseCard/index.tsx";
 import EmptyState from "../../Components/EmptyState";
-import * as React from "react";
 import Typography from "@mui/material/Typography";
 
 const Dashboard: React.FC = () => {
-    const expenses = [{amount: "85.00", paidBy: "Mark", name: "Weekly Shop"}];
-    // const expenses: any[] = [];
+    const [expenses, setExpenses] = useState<any[]>([]);
+
+    useEffect(() => {
+        // Retrieve expenses from localStorage
+        const savedExpenses = localStorage.getItem("expenses");
+        if (savedExpenses) {
+            setExpenses(JSON.parse(savedExpenses));
+        }
+    }, []);
 
     return (
         <div className={styles.dashboardCntnr}>
@@ -21,20 +28,21 @@ const Dashboard: React.FC = () => {
                     <Button variant="contained">Add New Expense</Button>
                 </div>
             </div>
-            <div className={styles.recentExpensesContainer}>
+            <ul className={styles.recentExpensesContainer}>
                 {expenses.length === 0 ? (
                     <EmptyState/>
                 ) : (
-                    expenses.map((expense, index) => (
+                    expenses.map((expense) => (
                         <ExpenseCard
-                            key={index}
-                            expenseAmount={expense.amount}
-                            expensePaidBy={expense.paidBy}
-                            expenseName={expense.name}
+                            id={expense.id}
+                            amount={expense.amount}
+                            paidBy={expense.paidBy}
+                            name={expense.name}
+                            date={expense.date}
                         />
                     ))
                 )}
-            </div>
+            </ul>
         </div>
     );
 };
