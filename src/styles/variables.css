@@ -3,14 +3,20 @@
     --color-primary: #0e68ef;
     --color-hover: #d3d6da;
     --color-seconday:#AAAAAAFF;
+    --color-seconday2: #d3d6da;
+    --color-white: #ffffff;
 
     /* Spacing */
-    --space-xs: 4px;
-    --space-sm: 8px;
-    --space-md: 16px;
-    --space-lg: 24px;
-    --space-xl: 32px;
-    --space-xxxl: 200px;
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl:12rem;
+    --space-xxxl: 12.5rem;
+    --space-xxxxl: 20rem;
+    --space-xxxxxl: 50rem;
+
 
     /* Typography */
     --font-size-sm: 0.875rem;
