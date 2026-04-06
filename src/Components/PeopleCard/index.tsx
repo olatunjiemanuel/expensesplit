@@ -4,12 +4,17 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import styles from "./index.module.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-const PeopleCard: React.FC = () => {
+interface PeopleCardProps {
+    name: string;
+    onDelete: () => void;
+}
+
+const PeopleCard: React.FC<PeopleCardProps> = ({name, onDelete}) => {
     return (
         <div className={styles.peopleCardContainer}>
             <AccountCircleIcon/>
-            <Typography>Sarah Jenkins</Typography>
-            <div className={styles.deleteButtonContainer}>
+            <Typography>{name}</Typography>
+            <div className={styles.deleteButtonContainer} onClick={onDelete}>
                 <DeleteOutlinedIcon/>
             </div>
         </div>
