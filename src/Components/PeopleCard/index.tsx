@@ -6,7 +6,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 interface PeopleCardProps {
     name: string;
-    onDelete: () => void;
+    onDelete: (e:string) => void;
 }
 
 const PeopleCard: React.FC<PeopleCardProps> = ({name, onDelete}) => {
@@ -14,7 +14,7 @@ const PeopleCard: React.FC<PeopleCardProps> = ({name, onDelete}) => {
         <div className={styles.peopleCardContainer}>
             <AccountCircleIcon/>
             <Typography>{name}</Typography>
-            <div className={styles.deleteButtonContainer} onClick={onDelete}>
+            <div className={styles.deleteButtonContainer} onClick={() => onDelete(name)}>
                 <DeleteOutlinedIcon/>
             </div>
         </div>

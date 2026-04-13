@@ -12,7 +12,8 @@ const People: React.FC = () => {
 
 
     const [personInput, setPersonInput] = useState<string>("")
-    const [alert, setAlert] = useState(false);
+    const [positiveAlert, setPositivAlert] = useState(false);
+    const [negativeAlert, setNegativeAlert] = useState(false);
     const [people, setPeople] = useState<string[]>(() => {
         const savedPeople = localStorage.getItem("people");
         return savedPeople ? JSON.parse(savedPeople) : [];
@@ -28,6 +29,14 @@ const People: React.FC = () => {
         console.log(personInput)
     }
 
+    const onDelete = (person: string) => {
+        setPeople(people.filter((p) => p !== person));
+        localStorage.setItem("people", JSON.stringify(people));
+        setNegativeAlert(true);
+        setTimeout(() => setNegativeAlert(false), 3000);
+        console.log(person + " deleted")
+    }
+
     return (
         <div>
             <div className={styles.peopleContainer}>
@@ -41,8 +50,8 @@ const People: React.FC = () => {
                                 setPeople((prevPeople) => [...prevPeople, personInput.trim()]);
                                 setPersonInput("");
                             }
-                            setAlert(true);
-                            setTimeout(() => setAlert(false), 3000);
+                            setPositivAlert(true);
+                            setTimeout(() => setPositivAlert(false), 3000);
                         }}
                     >
                         <div>
@@ -76,16 +85,23 @@ const People: React.FC = () => {
                     <Typography variant="h5">Active People</Typography>
                     <div>
                         {people.map((person, index) => (
-                            <PeopleCard key={index} name={person} onDelete = {() => {}} />
+                            <PeopleCard key={index} name={person} onDelete = {onDelete} />
                         ))}
                     </div>
                 </div>
             </div>
 
-            {alert && (
+            {positiveAlert && (
                 <div className={styles.confirmationContainer}>
                     <Alert severity="success">
                         Successfully added {personInput} to the list
+                    </Alert>
+                </div>
+            )}
+            {negativeAlert && (
+                <div className={styles.confirmationContainer}>
+                    <Alert severity="error">
+                        Successfully deleted {personInput} from the list
                     </Alert>
                 </div>
             )}
