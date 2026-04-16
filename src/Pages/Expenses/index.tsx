@@ -8,6 +8,8 @@ import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import ExpenseCard from "../../Components/ExpenseCard";
+import ExpensePeopleCard from "../../Components/ExpensePeopleCard";
+
 
 const Expenses: React.FC = () => {
     const [expenses, setExpenses] = useState(() => {
@@ -16,10 +18,16 @@ const Expenses: React.FC = () => {
     });
     const [newExpense, setNewExpense] = useState({name: "", amount: "", date: "", paidBy: ""});
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [people, setSavedPeople] = useState(() => {
+        const savedPeople = localStorage.getItem("people");
+        return savedPeople ? JSON.parse(savedPeople) : [];
+    });
+
 
     useEffect(() => {
         localStorage.setItem("expenses", JSON.stringify(expenses));
     }, [expenses]);
+
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
@@ -85,6 +93,15 @@ const Expenses: React.FC = () => {
                                     fullWidth
                                     placeholder="Enter payer name"
                                 />
+                            </div>
+                            <div>
+                                {/*todo* add logic for user to add people to a new expense when creating one*/}
+                                {/*onClick should potentially also push the selected persons to a new array to be added to the new expense*/}
+                                {
+                                    people.map((person: string) => (
+                                        <ExpensePeopleCard key={person} name={person}/>
+                                    ))
+                                }
                             </div>
                             <div>
                                 <Button type="submit" variant="contained" color="primary">
