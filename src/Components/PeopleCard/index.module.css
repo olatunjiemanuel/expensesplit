@@ -1,0 +1,31 @@
+.peopleCardContainer {
+    display: flex;
+    background-color: var(--color-seconday);
+    padding: var(--space-lg);
+    justify-content: space-between;
+    align-items: center;
+    width: var(--space-xxxxl);
+    border-radius: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+/*.deleteButtonContainer:hover {*/
+/*    background-color: var(--color-hover);*/
+/*    border-radius: var(--space-sm);*/
+/*    padding: var(--space-sm);*/
+/*}*/
+
+.deleteButtonContainer {
+    width: var(--space-xl); /* Fixed size */
+    height: var(--space-xl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteButtonContainer:hover {
+    background-color: var(--color-hover);
+    border-radius: var(--space-sm);
+    padding: var(--space-sm); /* Padding will work without changing total size */
+}
+

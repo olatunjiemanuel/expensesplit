@@ -1,0 +1,49 @@
+.peopleContainer {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.addPeopleContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-seconday2);
+    padding: var(--space-lg);
+    border-radius: var(--space-sm);
+    width: var(--space-xxxxl);
+}
+
+.addPeopleForm {
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.subtextContainer {
+    display: flex;
+    flex-direction: row;
+    width: var(--space-xxxl);
+    background-color: var(--color-seconday);
+    padding: var(--space-md);
+    border-radius: var(--space-sm);
+}
+
+.addPersonInput {
+    background-color: var(--color-white);
+}
+
+.peopleCardContainer {
+    padding: var(--space-md);
+}
+
+.confirmationContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
