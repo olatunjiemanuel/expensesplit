@@ -1,5 +1,4 @@
 import React from "react";
-import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import {Link} from "react-router-dom";
 import styles from "./index.module.css";
@@ -15,7 +14,7 @@ interface ExpenseCardProps {
 const ExpenseCard: React.FC<ExpenseCardProps> = ({id, name, amount, date, paidBy}) => {
     return (
         <Link to={`/expenses/${id}`} className={styles.cardLink}>
-            <Paper elevation={4} className={styles.card}>
+            <div className={styles.card}>
                 <div className={styles.cardHeader}>
                     <Typography variant="h5" className={styles.name}>
                         {name}
@@ -41,7 +40,7 @@ const ExpenseCard: React.FC<ExpenseCardProps> = ({id, name, amount, date, paidBy
                         </Typography>
                     </div>
                 </div>
-            </Paper>
+            </div>
         </Link>
     );
 };
