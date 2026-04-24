@@ -11,6 +11,7 @@ interface ExpenseCardProps {
     paidBy: string;
 }
 
+
 const ExpenseCard: React.FC<ExpenseCardProps> = ({id, name, amount, date, paidBy}) => {
     return (
         <Link to={`/expenses/${id}`} className={styles.cardLink}>
