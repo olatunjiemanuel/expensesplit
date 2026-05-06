@@ -15,7 +15,13 @@ const Expenses: React.FC = () => {
         const savedExpenses = localStorage.getItem("expenses");
         return savedExpenses ? JSON.parse(savedExpenses) : [];
     });
-    const [newExpense, setNewExpense] = useState({name: "", amount: "", date: "", paidBy: "", participants: [] as string[]});
+    const [newExpense, setNewExpense] = useState({
+        name: "",
+        amount: "",
+        date: "",
+        paidBy: "",
+        participants: [] as string[]
+    });
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedParticipants, setSelectedParticipants] = useState<string[]>([]);
     const [people] = useState(() => {
@@ -29,7 +35,7 @@ const Expenses: React.FC = () => {
     }, [expenses]);
 
     useEffect(() => {
-        setNewExpense((prev) => ({ ...prev, participants: selectedParticipants }));
+        setNewExpense((prev) => ({...prev, participants: selectedParticipants}));
     }, [selectedParticipants]);
 
 
@@ -40,7 +46,7 @@ const Expenses: React.FC = () => {
 
     const handleAddExpenseSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const { name, amount, date, paidBy } = newExpense;
+        const {name, amount, date, paidBy} = newExpense;
         if (!name || !amount || !date || !paidBy) {
             alert("Please fill in all fields.");
             return;
@@ -58,7 +64,7 @@ const Expenses: React.FC = () => {
             participants: [...selectedParticipants],
         };
         setExpenses((prev: any[]) => [...prev, expenseToAdd]);
-        setNewExpense({ name: "", amount: "", date: "", paidBy: "", participants: [] });
+        setNewExpense({name: "", amount: "", date: "", paidBy: "", participants: []});
         setSelectedParticipants([]);
         setIsModalOpen(false);
     };
@@ -70,7 +76,10 @@ const Expenses: React.FC = () => {
                 <Typography variant="h4" gutterBottom>
                     Expenses
                 </Typography>
-                <Button variant="contained" color="primary" onClick={() => { setSelectedParticipants([]); setIsModalOpen(true); }}>
+                <Button variant="contained" color="primary" onClick={() => {
+                    setSelectedParticipants([]);
+                    setIsModalOpen(true);
+                }}>
                     Add Expense
                 </Button>
             </div>
@@ -122,8 +131,6 @@ const Expenses: React.FC = () => {
                                 />
                             </div>
                             <div>
-                                {/*todo* add logic for user to add people to a new expense when creating one*/}
-                                {/*onClick should potentially also push the selected persons to a new array to be added to the new expense*/}
                                 {
                                     people.map((person: string) => (
                                         <ExpensePeopleCard
@@ -151,7 +158,14 @@ const Expenses: React.FC = () => {
                 </Box>
             </Modal>
             <div className={styles.expenseCardContainer}>
-                {expenses.map((expense: { id: number; name: string; amount: number; date: string; paidBy: string; participants: string[] }) => (
+                {expenses.map((expense: {
+                    id: number;
+                    name: string;
+                    amount: number;
+                    date: string;
+                    paidBy: string;
+                    participants: string[]
+                }) => (
                     <ExpenseCard
                         key={expense.id}
                         id={expense.id}

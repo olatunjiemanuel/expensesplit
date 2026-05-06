@@ -14,7 +14,8 @@ const ExpensePeopleCard: React.FC<ExpensePeopleCardProps> = ({name, selected = f
     };
 
     return (
-        <div onClick={handleClick} className={selected ? styles.expensePeopleCardContainerActive : styles.expensePeopleCardContainer}>
+        <div onClick={handleClick}
+             className={selected ? styles.expensePeopleCardContainerActive : styles.expensePeopleCardContainer}>
             <Typography>
                 {name}
             </Typography>

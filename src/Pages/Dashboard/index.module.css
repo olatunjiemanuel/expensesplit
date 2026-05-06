@@ -8,6 +8,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
 }
 
 .mainHeaderTxt {
@@ -16,4 +19,27 @@
 
 .recentExpensesContainer {
     margin-top: var(--space-xl);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    list-style: none;
+    padding: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .recentExpensesHeaderCntnr {
+        gap: var(--space-sm);
+    }
+}
+
+@media (max-width: 600px) {
+    .recentExpensesHeaderCntnr {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .recentExpensesHeaderCntnr button {
+        width: 100%;
+    }
 }
