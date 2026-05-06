@@ -26,7 +26,6 @@
     padding: 0;
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
     .recentExpensesHeaderCntnr {
         gap: var(--space-sm);
