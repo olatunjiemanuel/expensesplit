@@ -1,17 +1,20 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Typography from "@mui/material/Typography";
 import styles from "./index.module.css";
 
 interface ExpensePeopleCardProps {
     name: string;
+    selected?: boolean;
+    onToggle?: (name: string, selected: boolean) => void;
 }
 
-
-const ExpensePeopleCard: React.FC<ExpensePeopleCardProps> = ({name}) => {
-    const [selected, setSelected] = useState(false);
+const ExpensePeopleCard: React.FC<ExpensePeopleCardProps> = ({name, selected = false, onToggle}) => {
+    const handleClick = () => {
+        onToggle?.(name, !selected);
+    };
 
     return (
-        <div onClick={() =>setSelected(!selected)}  className={selected ? styles.expensePeopleCardContainerActive : styles.expensePeopleCardContainer}>
+        <div onClick={handleClick} className={selected ? styles.expensePeopleCardContainerActive : styles.expensePeopleCardContainer}>
             <Typography>
                 {name}
             </Typography>

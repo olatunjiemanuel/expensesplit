@@ -9,10 +9,11 @@ interface ExpenseCardProps {
     amount: number;
     date: string;
     paidBy: string;
+    participants: string[];
 }
 
 
-const ExpenseCard: React.FC<ExpenseCardProps> = ({id, name, amount, date, paidBy}) => {
+const ExpenseCard: React.FC<ExpenseCardProps> = ({id, name, amount, date, paidBy, participants}) => {
     return (
         <Link to={`/expenses/${id}`} className={styles.cardLink}>
             <div className={styles.card}>
@@ -38,6 +39,12 @@ const ExpenseCard: React.FC<ExpenseCardProps> = ({id, name, amount, date, paidBy
                         <span className={styles.icon}>🙋</span>
                         <Typography variant="body2" className={styles.detail}>
                             Paid By: {paidBy}
+                        </Typography>
+                    </div>
+                    <div className={styles.cardRow}>
+                        <span className={styles.icon}>👥</span>
+                        <Typography variant="body2" className={styles.detail}>
+                            Participants: {participants && participants.length ? participants.join(", ") : "None"}
                         </Typography>
                     </div>
                 </div>
