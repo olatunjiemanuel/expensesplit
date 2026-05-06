@@ -1,0 +1,19 @@
+.expensePeopleCardContainer {
+    background-color: var(--color-seconday);
+    padding: var(--space-sm);
+    border-radius: var(--space-xs);
+    margin-top: var(--space-sm);
+    cursor: pointer;
+}
+
+.expensePeopleCardContainerActive {
+    background-color: var(--color-primary);
+    padding: var(--space-sm);
+    border-radius: var(--space-xs);
+    margin-top: var(--space-sm);
+    cursor: pointer;
+}
+
+.expensePeopleCardContainer:hover {
+    background-color: var(--color-hover);
+}

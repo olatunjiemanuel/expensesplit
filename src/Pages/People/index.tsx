@@ -26,7 +26,6 @@ const People: React.FC = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPersonInput(e.target.value);
-        console.log(personInput)
     }
 
     const onDelete = (person: string) => {
@@ -34,7 +33,6 @@ const People: React.FC = () => {
         localStorage.setItem("people", JSON.stringify(people));
         setNegativeAlert(true);
         setTimeout(() => setNegativeAlert(false), 3000);
-        console.log(person + " deleted")
     }
 
     return (
@@ -81,14 +79,14 @@ const People: React.FC = () => {
                     </div>
 
                 </section>
-                <div className={styles.peopleCardContainer}>
+                {people.length != 0 ? <div className={styles.peopleCardContainer}>
                     <Typography variant="h5">Active People</Typography>
                     <div>
                         {people.map((person, index) => (
-                            <PeopleCard key={index} name={person} onDelete = {onDelete} />
+                            <PeopleCard key={index} name={person} onDelete={onDelete}/>
                         ))}
                     </div>
-                </div>
+                </div> : null}
             </div>
 
             {positiveAlert && (

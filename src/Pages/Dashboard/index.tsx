@@ -11,7 +11,6 @@ const Dashboard: React.FC = () => {
     const [expenses, setExpenses] = useState<any[]>([]);
 
     useEffect(() => {
-        // Retrieve expenses from localStorage
         const savedExpenses = localStorage.getItem("expenses");
         if (savedExpenses) {
             setExpenses(JSON.parse(savedExpenses));
@@ -39,6 +38,7 @@ const Dashboard: React.FC = () => {
                             paidBy={expense.paidBy}
                             name={expense.name}
                             date={expense.date}
+                            participants={expense.participants || []}
                         />
                     ))
                 )}

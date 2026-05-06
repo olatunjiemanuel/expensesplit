@@ -1,33 +1,12 @@
-.expenseCardCtnr {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--space-md);
-    border-radius: var(--space-sm);
-}
-
-.expenseCardCtnr:hover {
-    background-color: var(--color-hover);
-}
-
-.subHeadText {
-    margin-top: var(--space-sm);
-    color: var(--color-primary);
-    margin-left: var(--space-xs);
-}
-
-.name {
-    font-weight: bold;
-    margin-bottom: var(--space-sm);
-}
-
-.amountCtnr {
-    display: flex;
-    align-self: flex-end;
-}
-
 .cardLink {
+    flex: 1;
     text-decoration: none;
     color: inherit;
+    display: flex;
+    flex-direction: row ;
+    gap: var(--space-md);
+    justify-content:center;
+    width: var(--space-xxxxl);
 }
 
 .card {
@@ -39,17 +18,12 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    width: var(--space-xxxxl);
 }
 
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
-}
-
-.cardHeader {
-    border-bottom: 1px solid #ececec;
-    padding-bottom: var(--space-sm);
-    margin-bottom: var(--space-md);
 }
 
 .name {
