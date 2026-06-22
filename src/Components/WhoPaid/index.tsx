@@ -10,7 +10,7 @@ import CardContent from '@mui/material/CardContent';
 const WhoPaid: React.FC = () => {
     return (
         <Card variant="outlined" sx={{maxWidth: 345}}>
-            <CardHeader title="Paid By" subheader="Alex Smith" avatar = {
+            <CardHeader title="Paid By" subheader="Alex Smith" avatar={
                 <Avatar>A</Avatar>
             }/>
             <CardContent>

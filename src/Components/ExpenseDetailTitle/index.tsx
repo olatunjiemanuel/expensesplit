@@ -8,7 +8,7 @@ import Card from "@mui/material/Card";
 const ExpenseDetailTitle: React.FC = () => {
     return (
         <Card variant="outlined" sx={{maxWidth: 345}}>
-            <CardHeader title="Food Shop" subheader="2026-06-02" avatar = {
+            <CardHeader title="Food Shop" subheader="2026-06-02" avatar={
                 <Avatar>F</Avatar>
             }/>
             <CardContent>
